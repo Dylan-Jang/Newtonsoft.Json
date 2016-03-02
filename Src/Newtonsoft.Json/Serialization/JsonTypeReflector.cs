@@ -387,27 +387,27 @@ namespace Newtonsoft.Json.Serialization
 #endif
                 get
             {
-                if (_dynamicCodeGeneration == null)
-                {
-#if !(DOTNET || PORTABLE40 || PORTABLE)
-                    try
-                    {
-                        new ReflectionPermission(ReflectionPermissionFlag.MemberAccess).Demand();
-                        new ReflectionPermission(ReflectionPermissionFlag.RestrictedMemberAccess).Demand();
-                        new SecurityPermission(SecurityPermissionFlag.SkipVerification).Demand();
-                        new SecurityPermission(SecurityPermissionFlag.UnmanagedCode).Demand();
-                        new SecurityPermission(PermissionState.Unrestricted).Demand();
-                        _dynamicCodeGeneration = true;
-                    }
-                    catch (Exception)
-                    {
-                        _dynamicCodeGeneration = false;
-                    }
-#else
-                    _dynamicCodeGeneration = false;
-#endif
-                }
-
+//				if (_dynamicCodeGeneration == null)
+//				{
+//#if !(DOTNET || PORTABLE40 || PORTABLE)
+//					try
+//					{
+//						new ReflectionPermission(ReflectionPermissionFlag.MemberAccess).Demand();
+//						new ReflectionPermission(ReflectionPermissionFlag.RestrictedMemberAccess).Demand();
+//						new SecurityPermission(SecurityPermissionFlag.SkipVerification).Demand();
+//						new SecurityPermission(SecurityPermissionFlag.UnmanagedCode).Demand();
+//						new SecurityPermission(PermissionState.Unrestricted).Demand();
+//						_dynamicCodeGeneration = true;
+//					}
+//					catch (Exception)
+//					{
+//						_dynamicCodeGeneration = false;
+//					}
+//#else
+//					_dynamicCodeGeneration = false;
+//#endif
+//				}
+				_dynamicCodeGeneration = false;
                 return _dynamicCodeGeneration.GetValueOrDefault();
             }
         }
